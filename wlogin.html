@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name = "viewport" content = "width=device-width,initial-scale=1.0">
+        <link rel = "stylesheet" href = "wt1.css">
+    </head>
+    <body>
+        <section id ="header">
+            <a href = "t1.html"><img src = "6930e11e-4f84-428b-8164-e3eb86d6621e.png" class = "logo" alt = "logo"></a>
+            <div>
+                <ul id ="navbar">
+                    <li><a href = "t1.html">Home</a></li>
+                    <li><a href = "shop.html">Shop</a></li>
+                    <li><a href = "wlogin.html">Login</a></li>
+                    <li><a href = "about.html">About Us</a></li>
+                </ul>
+            </div>
+        </section>
+        <section id = "forms">
+            <div id = "loginform">
+                <form>
+                    <center><h2>LOGIN !</h2></center>
+                    <label for = "name">UserName: </label>
+                    <input class = "name" type = "text" pattern = "[a-zA-Z]{3,}" required>
+                    <br><br>
+                    <label for= "password">Password: </label>
+                    <input type = "password" class = "password" required>
+                    <br><br>
+                    <button type="submit">LOGIN !</button>
+                </form>
+            </div>
+            <div id = "signupform">
+                <form>
+                <center><h2>SIGN UP !</h2></center>
+                    <label for = "name">UserName: </label>
+                    <input class = "name" type = "text" pattern = "[a-zA-Z]{3,}" required>
+                    <br><br>
+                    <label for= "password">Create Password: </label>
+                    <input type = "password" class = "password" required>
+                    <br><br>
+                    <label for="email">Email: </label><br>
+                    <input type = "email" class ="email" required>
+                    <br><br>
+                    <label for="phno">Phone No.: </label>
+                    <input type = "text" pattern = "[0-9]{10}" required>
+                    <br><br>
+                    <button type="submit">SIGN UP !</button>
+                </form>
+            </div>
+        </section>
+        <footer id="footer">
+            <div id ="socials">
+                <h2>Join Our Community !</h2>
+                <h4><a href = "https://www.instagram.com/">instagram</a></h4>
+                <h4><a href = "https://www.pinterest.com/">pinterest</a></h4>
+                <h4><a href = "https://www.facebook.com/">facebook</a></h4>
+            </div>
+            <div id = "cp">
+                <center><p>@2024 ECOMMERCE WEBSITE FOR SKINCARE PRODUCTS - URK22CS1068</p></center>
+            </div>
+        </footer>
+    </body>
+    <script>
+        // Sign Up Form Handling
+const signupForm = document.getElementById('signupform');
+
+signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = signupForm.querySelector('.name').value;
+    const password = signupForm.querySelector('.password').value;
+    const email = signupForm.querySelector('.email').value;
+    const phone = signupForm.querySelector('input[type="text"]').value;
+
+    try {
+        const response = await fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, password, email, phone })
+        });
+
+        const data = await response.text();
+        alert(data); // Display success or error message
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+// Login Form Handling
+const loginForm = document.getElementById('loginform');
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = loginForm.querySelector('.name').value;
+    const password = loginForm.querySelector('.password').value;
+
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, password })
+        });
+
+        const data = await response.text();
+        alert(data); // Display success or error message
+    } catch (error) {
+        console.error(error);
+    }
+});
+    </script>
+</html>
