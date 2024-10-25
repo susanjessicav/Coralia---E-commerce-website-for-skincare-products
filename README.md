@@ -1,8 +1,8 @@
 # Coralia---E-commerce-website-for-skincare-products
 
-# 🌊 Coralia E-Commerce Website 🌊
+# 🌸 Coralia E-Commerce Website 🌸
 
-Welcome to **Coralia**, your go-to online store for all things aquatic! 🐠 Dive into our extensive collection of products and enjoy a seamless shopping experience.
+Welcome to **Coralia**, your go-to online store for all things skincare! 🌷 Dive into our extensive collection of products and enjoy a seamless shopping experience.
 
 ## 📦 Features
 
